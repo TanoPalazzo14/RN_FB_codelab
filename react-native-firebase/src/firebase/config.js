@@ -3,15 +3,19 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import { initializeAuth, getReactNativePersistence } from 'firebase/auth';
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
+import { getFirestore } from "firebase/firestore";
+import Constants from "expo-constants"
+
+const { API_KEY, AUTH_DOMAIN, PROJECTID, STORAGE_BUCKET, MESSAGINSENDERID, APP_ID} = Constants.manifest.extra
 
 // Configuración de Firebase
 const configuracionFirebase = {
-  apiKey: 'AIzaSyA5Bk8h6O34_O6e6rO7yf3RX_kO7KCXJeM',
-  authDomain: 'reactnativecourse-fbe79.firebaseapp.com',
-  projectId: 'reactnativecourse-fbe79',
-  storageBucket: 'reactnativecourse-fbe79.appspot.com',
-  messagingSenderId: '12345-insertar-tuyo',
-  appId: '1:131788505099:android:bf30408df1a630ce35870e',
+  apiKey: API_KEY,
+  authDomain: AUTH_DOMAIN,
+  projectId: PROJECTID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGINSENDERID,
+  appId: APP_ID,
 };
 
 // Inicializa la app de Firebase
@@ -24,4 +28,6 @@ const auth = initializeAuth(firebase.app(), {
   persistence: getReactNativePersistence(ReactNativeAsyncStorage), // Usar AsyncStorage para persistencia
 });
 
-export { firebase, auth };
+const db = getFirestore(firebase.app());
+
+export { firebase, auth, db };

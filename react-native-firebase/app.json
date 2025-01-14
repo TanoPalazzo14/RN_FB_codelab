@@ -7,6 +7,14 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "extra":{
+      "API_KEY": "AIzaSyA5Bk8h6O34_O6e6rO7yf3RX_kO7KCXJeM",
+      "AUTH_DOMAIN": "reactnativecourse-fbe79.firebaseapp.com",
+      "PROJECTID": "reactnativecourse-fbe79",
+      "STORAGE_BUCKET": "reactnativecourse-fbe79.appspot.com",
+      "MESSAGINSENDERID": "12345-insertar-tuyo",
+      "APP_ID": "1:131788505099:android:bf30408df1a630ce35870e"
+    },
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",

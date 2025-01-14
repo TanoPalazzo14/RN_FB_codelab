@@ -13,7 +13,7 @@ if (!global.atob) { global.atob = decode }
 
 const Stack = createStackNavigator();
 const auth = getAuth(); 
-const db = getFirestore(); 
+const db = getFirestore();
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -36,23 +36,7 @@ export default function App() {
         } finally {
           setLoading(false);
         }
-        try {
-          const userDoc = doc(db, 'users', user.uid);
-          const docSnapshot = await getDoc(userDoc);
-          if (docSnapshot.exists()) {
-            const userData = docSnapshot.data();
-            setUser(userData);
-          } else {
-            setUser(null); // User document doesn't exist
-          }
-        } catch (error) {
-          console.error('Error fetching user data:', error);
-        } finally {
-          setLoading(false);
-        }
       } else {
-        setUser(null); // No authenticated user
-        setLoading(false);
         setUser(null); // No authenticated user
         setLoading(false);
       }
